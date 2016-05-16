@@ -2,6 +2,8 @@
 <html>
 
 <link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src='guessingGame.js'></script>
 
 <head>
   <title>Guessing Game</title>
@@ -18,16 +20,19 @@
   <h1>Let's see how you do...</h1>
   
   <form>
-    <input type="text" name="num" placeholder="Enter a number 1-100" autofocus>
-    <input type="submit" value="Make Guess">
+    <input type="text" name="num" id="guess" placeholder="Enter a number 1-100" autofocus>
+    <input type="button" id="guessbutton" value="Make Guess">
   </form>
 
   <br>
 
   <div class="gamebuttons">
     <button>Play again</button>
-    <button>Get a Hint</button>
+    <button id="hint">Get a Hint</button>
   </div>
+  <p class="guesstracking">Guesses Remaining: <b class="
+  numguess">5</b></p>
+
 
 
 

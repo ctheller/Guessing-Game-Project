@@ -37,7 +37,8 @@ function playersGuessSubmission(){
 $(document).ready(playersGuessSubmission);
 
 
-//Stop 'enter' from refreshing page
+//Stop 'enter' from refreshing page and make it submit the form
+
 $(window).keydown(function(event){
     if(event.keyCode == 13){
         $('#guessbutton').trigger("click");
@@ -63,11 +64,12 @@ function guessDistance(){
 }
 
 function guessMessage(){
-  return "Hint: Your guess is " + lowerOrHigher() + 
+  return "Your guess is " + lowerOrHigher() + 
   " than the winning number by fewer than " + guessDistance() + " digits."
 };
 
 // Check if the Player's Guess is the winning number 
+
 var hasGuessed = [];
 var numGuess = 5;
 
@@ -76,13 +78,15 @@ function checkGuess(){
   $(".alert").remove();
   $("#result").remove();
   $("#message").remove();
+  $("#hintoutput").remove();
 
   if (playersGuess === winningNumber) {
-    $("h1").after("<p id=\"result\">You Win!!</p>");
-    $(".guesstracking").remove();
+    $("h1").after("<p id=\"result\">YOU WIN!!</p>");
+    $("body").addClass("winner");
+    $("#guesstracking").remove();
   }
   else if (hasGuessed.includes(playersGuess)) {
-      $(".guesstracking").before("<p class=\"alert\">You already guessed that number!</p>");
+      $("#guesstracking").before("<p class=\"alert\">You already guessed that number!</p>");
     }
 
   else {
@@ -94,10 +98,12 @@ function checkGuess(){
     $(".numguess").text(numGuess);
       
     if (numGuess === 0) {
-      $(".guesstracking").remove();
+      $("#guesstracking").remove();
       $("#result").remove();
       $("#message").remove();
-      $("h1").after("<p id=\"result\">You Lose, sorry!</p>");
+      $("#hintoutput").remove();
+      $("h1").after("<p id=\"result\">You lose, sorry!</p>");
+      $("body").addClass("loser");
       }
   };
   hasGuessed.push(playersGuess);
@@ -131,8 +137,8 @@ function hintArrayToString (array){
 
 function provideHint(){
 	$(".gamebuttons").on('click','#hint', function(){
-    $(".hintoutput").remove();
-    $(".guesstracking").before("<p class=\"hintoutput\">The winning number is one of the following: <br>"+hintArrayToString(generateHintArray())+"</p>");
+    $("#hintoutput").remove();
+    $("#guesstracking").before("<p id=\"hintoutput\">The winning number is one of the following: <br>"+hintArrayToString(generateHintArray())+"</p>");
   });
 }
 
@@ -141,9 +147,11 @@ $(document).ready(provideHint);
 // Allow the "Player" to Play Again
 
 function playAgain(){
-	// add code here
+	$(".gamebuttons").on('click','#reload', function(){
+    location.reload();
+  });
 }
 
-
+$(document).ready(playAgain);
 /* **** Event Listeners/Handlers ****  */
 

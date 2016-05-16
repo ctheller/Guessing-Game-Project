@@ -5,11 +5,9 @@ html {
 
 header {
   background: #111111 url("banner.jpg") no-repeat;
-  height: 250px;
+  height: 150px;
   width: 1000px;
   margin: 0 auto 0 auto;
-  border: 0;
-  padding: 0 0 0 0;
   text-align: center;
   color: rgba(0,0,0,1);
   font-family: Helvetica;
@@ -17,6 +15,7 @@ header {
   padding-top: 60px;
   text-shadow: 4px 4px 10px #111111;
   border-radius: 15px 15px 0 0;
+  overflow: hidden;
 }
 
 body {
@@ -25,23 +24,37 @@ body {
   height: 100%;
 }
 
+p {
+  margin: 0;
+  padding: 5px;
+  border: 0;
+}
+
 .content {
   width: 1000px;
   margin: 0 auto;
   color: #1a8cff;
   text-align: center;
   background: #222222;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   font-family: Helvetica;
   position:absolute;
-  top: 250px;
-  bottom:0;
+  bottom:inherit;
   left:0;
   right:0;
 }
 
+form {
+  margin-top:15px;
+}
+
+.section1 {
+  min-height: 130px;
+  margin-bottom: 35px;
+}
+
 h1 {
-  padding-top: 40px;
+  padding-top: 20px;
   margin-top: 0;
   font-weight: normal;
   font-style: italic;
@@ -62,7 +75,7 @@ input[type=text]
   margin-top: 40px;
 }
 
-input[type=submit]
+input[type=button]
 {
   display: block;
   margin: 30px auto;
@@ -81,7 +94,7 @@ input[type=submit]
   text-decoration: none;
 }
 
-input[type=submit]:hover {
+input[type=button]:hover {
   text-decoration: none;
   background: #00e600;
 }
@@ -98,7 +111,7 @@ input[type=submit]:hover {
 
 button {
   display: inline;
-  margin: 30px 20px;
+  margin: 20px 20px;
   background: #0099ff;
   background-image: -webkit-linear-gradient(top, #0099ff, #115f8f);
   background-image: -moz-linear-gradient(top, #0099ff, #115f8f);
@@ -127,5 +140,17 @@ button:hover {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+.winner .content p {
+  color: yellow;
+  margin-top: 30px;
+  font-size: 140px;
+  font-family: Impact, Charcoal, sans-serif;
+  text-shadow: 4px 4px 17px #0E3080;
+}
+
+.winner .content h1 {
+  display:none;
 }
 

@@ -3,6 +3,7 @@
 
 var playersGuess,
     winningNumber = generateWinningNumber();
+    gameover = false;
 
 
 
@@ -26,10 +27,14 @@ function generateWinningNumber(){
 function playersGuessSubmission(){
   $("form").on('click', '#guessbutton', function(){
     if (numGuess <= 0){
-      return false;
+      return;
     };
     playersGuess = +$("#guess").val();
     $("#guess").val("");
+
+    if (gameover){
+      return;
+    }
     checkGuess();
   });
   };
@@ -80,11 +85,18 @@ function checkGuess(){
   $("#message").remove();
   $("#hintoutput").remove();
 
-  if (playersGuess === winningNumber) {
+  if (!(1<=playersGuess && playersGuess<=100)){
+      $("h1").after("<p id=\"result\">Invalid input!</p>");
+      return;
+    }
+
+  else if (playersGuess === winningNumber) {
     $("h1").after("<p id=\"result\">YOU WIN!!</p>");
     $("body").addClass("winner");
     $("#guesstracking").remove();
+    gameover = true;
   }
+
   else if (hasGuessed.includes(playersGuess)) {
       $("#guesstracking").before("<p class=\"alert\">You already guessed that number!</p>");
     }
@@ -103,7 +115,9 @@ function checkGuess(){
       $("#message").remove();
       $("#hintoutput").remove();
       $("h1").after("<p id=\"result\">You lose, sorry!</p>");
-      $("body").addClass("loser");
+      $("body").addClass("loser rain");
+      createRain();
+      gameover = true;
       }
   };
   hasGuessed.push(playersGuess);
@@ -154,4 +168,36 @@ function playAgain(){
 
 $(document).ready(playAgain);
 /* **** Event Listeners/Handlers ****  */
+
+
+
+
+
+
+//   Rain, taken from https://codepen.io/alemesre/pen/hAxGg 
+
+// number of drops created.
+var nbDrop = 858; 
+
+// function to generate a random number range.
+function randRange( minNum, maxNum) {
+  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+}
+
+// function to generate drops
+function createRain() {
+
+  for( i=1;i<nbDrop;i++) {
+  var dropLeft = randRange(0,1600);
+  var dropTop = randRange(-1000,1400);
+
+  $('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+  $('#drop'+i).css('left',dropLeft);
+  $('#drop'+i).css('top',dropTop);
+  }
+
+}
+// Make it rain
+
+
 

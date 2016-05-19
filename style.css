@@ -4,7 +4,7 @@ html {
 }
 
 header {
-  background: #111111 url("banner.jpg") no-repeat;
+  background: #010201 url("banner.jpg") no-repeat;
   height: 150px;
   width: 1000px;
   margin: 0 auto 0 auto;
@@ -16,10 +16,10 @@ header {
   text-shadow: 4px 4px 10px #111111;
   border-radius: 15px 15px 0 0;
   overflow: hidden;
+  box-shadow: 00px 0px 50px #222222;
 }
 
 body {
-  /*background: #000000 url("banner.jpg") -200px 0/auto 900px repeat;*/
   background: black;
   height: 100%;
 }
@@ -33,15 +33,16 @@ p {
 .content {
   width: 1000px;
   margin: 0 auto;
-  color: #1a8cff;
+  color: orange;
   text-align: center;
-  background: #222222;
+  background: #111111;
   padding-bottom: 50px;
   font-family: Helvetica;
   position:absolute;
   bottom:inherit;
   left:0;
   right:0;
+  box-shadow: 0px 0px 50px #222222;
 }
 
 form {
@@ -54,10 +55,11 @@ form {
 }
 
 h1 {
-  padding-top: 20px;
+  padding-top: 30px;
   margin-top: 0;
   font-weight: normal;
   font-style: italic;
+  text-shadow: 3px 3px 3px black;
 }
 
 .gamebuttons {
@@ -75,75 +77,94 @@ input[type=text]
   margin-top: 40px;
 }
 
-input[type=button]
-{
-  display: block;
-  margin: 30px auto;
-  background: #009900;
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  text-shadow: 1px 1px 3px #0a090a;
-  -webkit-box-shadow: 1px 1px 3px #666666;
-  -moz-box-shadow: 1px 1px 3px #666666;
-  box-shadow: 1px 1px 3px #666666;
-  font-family: Courier New;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
+ #guesstracking {
+  margin: 20px 0;
+ }
 
+input[type=button] {
+  border: none;
+  margin: 30px 375px;
+  -moz-box-shadow: 0px 1px 4px 0px #000000;
+  -webkit-box-shadow: 0px 1px 4px 0px #000000;
+  box-shadow: 0px 1px 4px 0px #000000;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff6f00), color-stop(1, #c73c00));
+  background:-moz-linear-gradient(top, #ff6f00 5%, #c73c00 100%);
+  background:-webkit-linear-gradient(top, #ff6f00 5%, #c73c00 100%);
+  background:-o-linear-gradient(top, #ff6f00 5%, #c73c00 100%);
+  background:-ms-linear-gradient(top, #ff6f00 5%, #c73c00 100%);
+  background:linear-gradient(to bottom, #ff6f00 5%, #c73c00 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6f00', endColorstr='#c73c00',GradientType=0);
+  background-color:#ff6f00;
+  -moz-border-radius:9px;
+  -webkit-border-radius:9px;
+  border-radius:9px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:25px;
+  font-weight:bold;
+  padding:7px 26px;
+  text-decoration:none;
+  text-shadow:0px 1px 12px #450000;
+}
 input[type=button]:hover {
-  text-decoration: none;
-  background: #00e600;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c73c00), color-stop(1, #ff6f00));
+  background:-moz-linear-gradient(top, #c73c00 5%, #ff6f00 100%);
+  background:-webkit-linear-gradient(top, #c73c00 5%, #ff6f00 100%);
+  background:-o-linear-gradient(top, #c73c00 5%, #ff6f00 100%);
+  background:-ms-linear-gradient(top, #c73c00 5%, #ff6f00 100%);
+  background:linear-gradient(to bottom, #c73c00 5%, #ff6f00 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c73c00', endColorstr='#ff6f00',GradientType=0);
+  background-color:#c73c00;
 }
-
-
-/*input[type=submit]
-{
-  font-size: 20px;
-  padding: 10px;
-  background-color: #aaddff;
-  border: 0;
-  border-radius:5px;
-}*/
+input[type=button]:active {
+  position:relative;
+  top:1px;
+}
 
 button {
-  display: inline;
-  margin: 20px 20px;
-  background: #0099ff;
-  background-image: -webkit-linear-gradient(top, #0099ff, #115f8f);
-  background-image: -moz-linear-gradient(top, #0099ff, #115f8f);
-  background-image: -ms-linear-gradient(top, #0099ff, #115f8f);
-  background-image: -o-linear-gradient(top, #0099ff, #115f8f);
-  background-image: linear-gradient(to bottom, #0099ff, #115f8f);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  text-shadow: 1px 1px 3px #0a090a;
-  -webkit-box-shadow: 1px 1px 3px #666666;
-  -moz-box-shadow: 1px 1px 3px #666666;
-  box-shadow: 1px 1px 3px #666666;
-  font-family: Courier New;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+  border: none;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f0c911), color-stop(1, #f2ab1e));
+  background:-moz-linear-gradient(top, #f0c911 5%, #f2ab1e 100%);
+  background:-webkit-linear-gradient(top, #f0c911 5%, #f2ab1e 100%);
+  background:-o-linear-gradient(top, #f0c911 5%, #f2ab1e 100%);
+  background:-ms-linear-gradient(top, #f0c911 5%, #f2ab1e 100%);
+  background:linear-gradient(to bottom, #f0c911 5%, #f2ab1e 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0c911', endColorstr='#f2ab1e',GradientType=0);
+  background-color:#f0c911;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  border-radius:8px;
+  display:inline-block;
+  cursor:pointer;
+  color:#c92200;
+  font-family:Arial;
+  font-size:25px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 0px 13px #ded17c;
+  margin: 0 20px 10px 20px;
+}
+button:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f2ab1e), color-stop(1, #f0c911));
+  background:-moz-linear-gradient(top, #f2ab1e 5%, #f0c911 100%);
+  background:-webkit-linear-gradient(top, #f2ab1e 5%, #f0c911 100%);
+  background:-o-linear-gradient(top, #f2ab1e 5%, #f0c911 100%);
+  background:-ms-linear-gradient(top, #f2ab1e 5%, #f0c911 100%);
+  background:linear-gradient(to bottom, #f2ab1e 5%, #f0c911 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2ab1e', endColorstr='#f0c911',GradientType=0);
+  background-color:#f2ab1e;
+}
+button:active {
+  position:relative;
+  top:1px;
 }
 
-button:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
 
 .winner .content p {
-  color: yellow;
+  color: #fdd502;
   margin-top: 30px;
   font-size: 140px;
   font-family: Impact, Charcoal, sans-serif;
@@ -153,4 +174,43 @@ button:hover {
 .winner .content h1 {
   display:none;
 }
+
+.winner {
+  background: #fdd502;
+}
+
+.loser {
+  background: #00334d;
+}
+
+.rain {
+background:#0D343A;
+background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(#000000)  );
+background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(0,0,0,1) 100%);
+
+overflow:hidden;}
+
+
+.drop {
+  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
+  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+  width:1px;
+  height:55px;
+  position: absolute;
+  bottom:200px;
+  -webkit-animation: fall 2.63s linear infinite;
+  -moz-animation: fall 2.63s linear infinite;
+  
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+  to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+  to {margin-top:900px;}
+}
+
+
+
 

@@ -80,30 +80,21 @@ var numGuess = 5;
  //Remove messages 
 
 function resetMessages(){
-  $(".alert").remove();
-  $("#result").remove();
-  $("#message").remove();
-  $("#hintoutput").remove();
+  $("#alert, #result, #message, #hintoutput").remove();
 }
 
 function winGame(){
     $("h1").after("<p id=\"result\">YOU WIN!!</p>");
-    $("body").addClass("gameover");
-    $("body").addClass("winner");
+    $("body").addClass("gameover winner");
     $("#guesstracking").remove();
     gameover = true;
 }
 
 function loseGame(){
-    $("#guesstracking").remove();
     resetMessages();
-
+    $("#guesstracking").remove();
     $("h1").after("<p id=\"result\">GAME OVER...</p>");
-
-    $("body").addClass("gameover");
-    $("body").addClass("loser");
-    $("body").addClass("rain");
-
+    $("body").addClass("gameover loser rain");
     createRain();
     gameover = true;
 }
@@ -130,7 +121,7 @@ function checkGuess(){
   //Check for already-guessed numbers
 
   else if (hasGuessed.includes(playersGuess)) {
-      $("#guesstracking").before("<p class=\"alert\">You already guessed that number!</p>");
+      $("h1").after("<p id=\"alert\">You already guessed that number!</p>");
     }
 
   //Handle an incorrect guess. 

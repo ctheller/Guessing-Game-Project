@@ -39,8 +39,6 @@ function playersGuessSubmission(){
   });
   };
 
-$(document).ready(playersGuessSubmission);
-
 
 //Stop 'enter' from refreshing page and make it submit the form
 
@@ -78,53 +76,86 @@ function guessMessage(){
 var hasGuessed = [];
 var numGuess = 5;
 
-function checkGuess(){
-	// add code here
+
+ //Remove messages 
+
+function resetMessages(){
   $(".alert").remove();
   $("#result").remove();
   $("#message").remove();
   $("#hintoutput").remove();
+}
+
+function winGame(){
+    $("h1").after("<p id=\"result\">YOU WIN!!</p>");
+    $("body").addClass("gameover");
+    $("body").addClass("winner");
+    $("#guesstracking").remove();
+    gameover = true;
+}
+
+function loseGame(){
+    $("#guesstracking").remove();
+    resetMessages();
+
+    $("h1").after("<p id=\"result\">GAME OVER...</p>");
+
+    $("body").addClass("gameover");
+    $("body").addClass("loser");
+    $("body").addClass("rain");
+
+    createRain();
+    gameover = true;
+}
+
+function checkGuess(){
+
+  //Remove messages 
+
+  resetMessages();
+
+  //Check for invalid inputs
 
   if (!(1<=playersGuess && playersGuess<=100)){
       $("h1").after("<p id=\"result\">Invalid input!</p>");
       return;
     }
 
+  //Check for winning
+
   else if (playersGuess === winningNumber) {
-    $("h1").after("<p id=\"result\">YOU WIN!!</p>");
-    $("body").addClass("winner");
-    $("#guesstracking").remove();
-    gameover = true;
+    winGame();
   }
+
+  //Check for already-guessed numbers
 
   else if (hasGuessed.includes(playersGuess)) {
       $("#guesstracking").before("<p class=\"alert\">You already guessed that number!</p>");
     }
 
+  //Handle an incorrect guess. 
+
   else {
-    
+
     $("h1").after("<p id=\"result\">Try Again!!</p><p id=\"message\">"+guessMessage()+"</p>");
-
+    
     numGuess-=1;
+    $("#numguess").text(numGuess);
+    
+    //Checks for Losing
 
-    $(".numguess").text(numGuess);
-      
     if (numGuess === 0) {
-      $("#guesstracking").remove();
-      $("#result").remove();
-      $("#message").remove();
-      $("#hintoutput").remove();
-      $("h1").after("<p id=\"result\">You lose, sorry!</p>");
-      $("body").addClass("loser rain");
-      createRain();
-      gameover = true;
-      }
+      loseGame();
+    }
+
   };
+
   hasGuessed.push(playersGuess);
 };
 
 // Create a provide hint button that provides additional clues to the "Player"
 
+//Chooses random numbers to include in hint, based on number of guesses left, and returns in increasing order.
 
 function generateHintArray(){
   var hintArray = [winningNumber]
@@ -156,8 +187,6 @@ function provideHint(){
   });
 }
 
-$(document).ready(provideHint);
-
 // Allow the "Player" to Play Again
 
 function playAgain(){
@@ -166,15 +195,16 @@ function playAgain(){
   });
 }
 
-$(document).ready(playAgain);
 /* **** Event Listeners/Handlers ****  */
 
+$(document).ready(provideHint);
+$(document).ready(playAgain);
+$(document).ready(playersGuessSubmission);
 
 
 
 
-
-//   Rain, taken from https://codepen.io/alemesre/pen/hAxGg 
+//****** Rain: taken from https://codepen.io/alemesre/pen/hAxGg ******//
 
 // number of drops created.
 var nbDrop = 858; 

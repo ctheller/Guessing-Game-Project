@@ -9,7 +9,6 @@ header {
   width: 1000px;
   margin: 0 auto 0 auto;
   text-align: center;
-  color: rgba(0,0,0,1);
   font-family: Helvetica;
   font-size: 100px;
   padding-top: 60px;
@@ -33,7 +32,7 @@ p {
 .content {
   width: 1000px;
   margin: 0 auto;
-  color: orange;
+  color: #f2ab1e;
   text-align: center;
   background: #111111;
   padding-bottom: 50px;
@@ -60,6 +59,8 @@ h1 {
   font-weight: normal;
   font-style: italic;
   text-shadow: 3px 3px 3px black;
+  font-size: 30px;
+  font-family: Times New Roman;
 }
 
 .gamebuttons {
@@ -74,12 +75,13 @@ input[type=text]
   border-radius:5px;
   font-size: 20px;
   font-weight: bold;
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
  #guesstracking {
   margin: 20px 0;
  }
+
 
 input[type=button] {
   border: none;
@@ -162,25 +164,38 @@ button:active {
   top:1px;
 }
 
+#hintoutput {
+  margin-top: 10px;
+  display: inline-block;
+  background-color: rgba(0, 102, 255, 0.1);
+  border: 2px solid #0066ff;
+}
 
-.winner .content p {
-  color: #fdd502;
+.gameover .content p {
   margin-top: 30px;
   font-size: 140px;
   font-family: Impact, Charcoal, sans-serif;
   text-shadow: 4px 4px 17px #0E3080;
 }
 
-.winner .content h1 {
+.gameover .content h1 {
   display:none;
 }
 
 .winner {
-  background: #fdd502;
+  background: #f0c911;
 }
 
 .loser {
   background: #00334d;
+}
+
+.winner .content p {
+  color: #f0c911;
+}
+
+.loser .content p {
+  color: blue;
 }
 
 .rain {
@@ -211,6 +226,9 @@ overflow:hidden;}
   to {margin-top:900px;}
 }
 
+#numguess {
+  color: red;
+ }
 
 
 

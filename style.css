@@ -198,6 +198,16 @@ button:active {
   color: blue;
 }
 
+#stars {
+  height: 270px;
+  width: auto;
+  margin-top: 20px;
+  position: absolute;
+  right: 100px;
+  top: 0;
+  opacity: .2;
+}
+
 .rain {
 background:#0D343A;
 background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(#000000)  );

@@ -82,7 +82,7 @@ function resetMessages(){
 }
 
 function winGame(){
-    $("h1").after("<p id=\"result\">YOU WIN!!</p>");
+    $("h1").after("<img id=\"stars\" src=\"winner-stars.png\" alt=\"Stars\"><p id=\"result\">YOU WIN!!</p>");
     $("body").addClass("gameover winner");
     $("#guesstracking").remove();
     gameover = true;
